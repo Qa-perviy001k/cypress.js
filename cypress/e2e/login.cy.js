@@ -13,7 +13,7 @@ describe('Автотест форма логина', function () {
         cy.get('#forgotEmailButton').click() // Нажали забыли пароль
         cy.get('#forgotForm > .header').should('be.visible'); // Надпись видима
         cy.get('#forgotForm > .header').contains('Восстановите пароль') // Совпадение текста
-        cy.get('#mailForgot').type('ruslan18222@gmail.com') // Ввели почту
+        cy.get('#mailForgot').type('rus@gmail.com') // Ввели почту
         cy.get('#restoreEmailButton').click() // Нажали отправить код
         cy.get('#messageHeader').should('be.visible') // Проверка что текст виден
         cy.get('#messageHeader').contains('Успешно отправили пароль на e-mail') // Проверка на успешную отправку сообщения
@@ -23,8 +23,8 @@ describe('Автотест форма логина', function () {
 
    it('Автотест неправильный пароль', function () {
         cy.visit('https://login.qa.studio/'); // Посетили сайт
-        cy.get('#mail').type('german@dolnikov.ru'); // Ввели логин
-        cy.get('#pass').type('iLoveqastudio12'); // Ввели неверный пароль
+        cy.get('#mail').type('vasiy2@gmail.com'); // Ввели логин
+        cy.get('#pass').type('iL'); // Ввели неверный пароль
         cy.get('#loginButton').click(); // Нажали войти
         cy.get('#messageHeader').should('be.visible'); // Надпись видима
         cy.get('#messageHeader').contains('Такого логина или пароля нет') // Совпадение текста
@@ -33,8 +33,8 @@ describe('Автотест форма логина', function () {
 
    it('Автотест не правильный логин', function () {
         cy.visit('https://login.qa.studio/'); // Посетили сайт
-        cy.get('#mail').type('german21@dolnikov.ru'); // Ввели логин
-        cy.get('#pass').type('iLoveqastudio1'); // Ввели неверный пароль
+        cy.get('#mail').type('vasiy2@gmail.com'); // Ввели логин
+        cy.get('#pass').type('iL'); // Ввели неверный пароль
         cy.get('#loginButton').click(); // Нажали войти
         cy.get('#messageHeader').should('be.visible'); // Надпись видима
         cy.get('#messageHeader').contains('Такого логина или пароля нет') // Совпадение текста
@@ -42,9 +42,9 @@ describe('Автотест форма логина', function () {
    })
  
    it('Автотест на валидацию в логине', function () {
-        cy.visit('https://login.qa.studio/'); // Посетили сайт
-        cy.get('#mail').type('german21dolnikov.ru'); // Ввели логин
-        cy.get('#pass').type('iLoveqastudio1'); // Ввели неверный пароль
+        cy.visit('https://login'); // Посетили сайт
+        cy.get('#mail').type('vasiy2@gmail.com'); // Ввели логин
+        cy.get('#pass').type('iL'); // Ввели неверный пароль
         cy.get('#loginButton').click(); // Нажали войти
         cy.get('#messageHeader').should('be.visible'); // Надпись видима
         cy.get('#messageHeader').contains('Нужно исправить проблему валидации') // Совпадение текста
@@ -52,9 +52,9 @@ describe('Автотест форма логина', function () {
    })
 
    it('Автотест строчные буквы в логине', function () {
-        cy.visit('https://login.qa.studio/'); // Посетили сайт
-        cy.get('#mail').type('GerMan@Dolnikov.ru'); // Ввели логин
-        cy.get('#pass').type('iLoveqastudio1'); // Ввели неверный пароль
+        cy.visit('https://login'); // Посетили сайт
+        cy.get('#mail').type('vasiy2@gmail.com'); // Ввели логин
+        cy.get('#pass').type('iL'); // Ввели неверный пароль
         cy.get('#loginButton').click(); // Нажали войти
         cy.get('#messageHeader').should('be.visible'); // Надпись видима
         cy.get('#messageHeader').contains('Такого логина или пароля нет') // Совпадение текста
